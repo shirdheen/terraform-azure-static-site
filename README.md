@@ -16,10 +16,10 @@ This project demonstrates how to deploy a static website to **Azure Blob Storage
 
 ## Tools and Technologies
 
-- [Terraform] (https://developer.hashicorp.com/terraform)
-- [Azure CLI] (https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
-- [GitHub Actions] (https://docs.github.com/en/actions)
-- [Azure Resource Manager (azurerm) Provider] (https://docs.github.com/en/actions)
+- [Terraform](https://developer.hashicorp.com/terraform)
+- [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
+- [GitHub Actions](https://docs.github.com/en/actions)
+- [Azure Resource Manager (azurerm) Provider](https://docs.github.com/en/actions)
 
 ---
 
