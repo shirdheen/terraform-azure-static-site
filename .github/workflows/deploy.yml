@@ -1,15 +1,35 @@
 name: Terraform CI/CD
 
+# Defines when the workflow should run
 on:
-    push:
-        branches:
-            - main
-            pull_request:
-jobs:
-    terraform:
-        name: 'Terraform Validate and Plan'
-        runs-on: ubuntu-latest
+  push:
+    branches:
+      - main # On every push to the main branch
+  pull_request: # On pull requests targeting any branch
 
-        steps:
-            - name: Checkout repo
-            uses: actions/checkout@v3
+# Defines a job named terraform
+jobs:
+  terraform:
+    name: "Terraform Validate and Plan"
+    runs-on: ubuntu-latest # Specifies the OS for the runner (Ubuntu VM in the cloud)
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3 # Checks out repo code into the runner so that Terraform can access it
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.5.0 # Installs Terraform CLI on the Github-hosted runner
+
+      - name: Terraform init
+        run: terraform init # Initialises the Terraform project and downloads provider like azurerm
+
+      - name: Terraform Format Check
+        run: terraform fmt -check # Checks Terraform code formatting
+
+      - name: Terraform Validate
+        run: terraform validate # Checks if code syntax is correct and consistent
+
+      - name: Terraform Plan
+        run: terraform plan # Generates an execution plan (no changes made yet)
