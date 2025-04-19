@@ -2,6 +2,8 @@
 
 This project demonstrates how to deploy a static website to **Azure Blob Storage** using **Terraform**, with **Github Actions CI/CD** for continuous validation and planning.
 
+![CI](https://github.com/shirdheen/terraform-azure-static-site/actions/workflows/deploy.yml/badge.svg)
+
 ---
 
 ## What This Project Does
@@ -35,7 +37,15 @@ This project demonstrates how to deploy a static website to **Azure Blob Storage
   - `terraform validate`
   - `terraform plan`
 
-**Note:** `terraform apply` is done manually, as a best practice for controlled deployments
+### Manual Deployment
+
+This project supports manual deployment using the **Run Workflow** feature.
+
+To deploy to Azure:
+
+1. Go to **Actions > Terraform CI/CD**
+2. Click **Run Workflow**
+3. GitHub Actions will apply the Terraform plan and deploy resources
 
 ---
 
