@@ -44,7 +44,7 @@ resource "azurerm_storage_blob" "index_html" {
   storage_container_name = "$web"
   type                   = "Block"                             # Defines the blob type
   source                 = "${path.module}/website/index.html" # Path to the local file we are uploading
-  content_type           = "text/html"                         # Used by brosers to interpret the file
+  content_type           = "text/html"                         # Used by browsers to interpret the file
 
 }
 
