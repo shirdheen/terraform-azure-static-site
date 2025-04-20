@@ -49,7 +49,7 @@ resource "azurerm_storage_account" "storage" {
 
 resource "azurerm_storage_blob" "index_html" {
   name                   = "index.html"
-  storage_account_name   = azurerm_storage_account.storage.name
+  storage_account_name   = "tfstaticwebproject123"
   storage_container_name = "$web"
   type                   = "Block"                             # Defines the blob type
   source                 = "${path.module}/website/index.html" # Path to the local file we are uploading
@@ -84,4 +84,12 @@ resource "azurerm_key_vault_secret" "dummy" {
   name         = "dummy-api-key"
   value        = "this_is_fake"
   key_vault_id = azurerm_key_vault.kv.id
+
+  depends_on = [
+    azurerm_key_vault.kv
+  ]
+
+  lifecycle {
+    ignore_changes = [value]
+  }
 }

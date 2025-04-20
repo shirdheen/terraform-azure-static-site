@@ -7,3 +7,8 @@ output "static_website_url" {
 }
 
 # Value is set to the public URL of my Azure static website (comes from the azure_storage_account) resource we defined earlier
+
+output "key_vault_uri" {
+  value       = azurerm_key_vault.kv.vault_uri
+  description = "URI of the Azure Key Vault"
+}
