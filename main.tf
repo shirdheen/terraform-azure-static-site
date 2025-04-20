@@ -58,3 +58,30 @@ resource "azurerm_storage_blob" "index_html" {
 }
 
 # Uploads the index.html file to the special $web container, which is automatically created when you enable static web hosting
+
+resource "azurerm_key_vault" "kv" {
+  name                     = "tfkeyvault123"
+  location                 = azurerm_resource_group.rg.location
+  resource_group_name      = azurerm_resource_group.rg.name
+  tenant_id                = var.tenant_id
+  sku_name                 = "standard"
+  purge_protection_enabled = false
+
+  access_policy {
+    tenant_id = var.tenant_id
+    object_id = var.object_id
+
+    secret_permissions = [
+      "get",
+      "list",
+      "set"
+    ]
+  }
+
+}
+
+resource "azurerm_key_vault_secret" "dummy" {
+  name         = "dummy-api-key"
+  value        = "this_is_fake"
+  key_vault_id = azurerm_key_vault.kv.id
+}

@@ -11,3 +11,11 @@ variable "location" {
 variable "storage_account_name" {
   default = "tfstaticwebproject123"
 }
+
+variable "tenant_id" {
+  description = "Azure tenant ID"
+}
+
+variable "object_id" {
+  description = "Object ID of user of or service principal"
+}
