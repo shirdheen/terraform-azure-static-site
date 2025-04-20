@@ -1,4 +1,13 @@
 terraform {
+  backend "azurerm" {
+    resource_group_name  = "tf-static-site-rg"
+    storage_account_name = "tfstaticwebproject123"
+    container_name       = "tfstate"
+    key                  = "terraform.tfstate"
+  }
+}
+
+terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
