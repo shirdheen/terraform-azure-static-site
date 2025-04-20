@@ -20,8 +20,8 @@ jobs:
       ARM_SUBSCRIPTION_ID: ${{ fromJson(secrets.AZURE_CREDENTIALS).subscriptionId }}
       ARM_TENANT_ID: ${{ fromJson(secrets.AZURE_CREDENTIALS).tenantId }}
 
-      TF_VAR_tenant_id: $${{fromJson(secrets.AZURE_CREDENTIALS).tenantId}}
-      TF_VAR_object_id: $${{fromJson(secrets.AZURE_CREDENTIALS).objectId}}
+      TF_VAR_tenant_id: ${{fromJson(secrets.AZURE_CREDENTIALS).tenantId}}
+      TF_VAR_object_id: ${{fromJson(secrets.AZURE_CREDENTIALS).objectId}}
 
     steps:
       - name: Checkout repo
